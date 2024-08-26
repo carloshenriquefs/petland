@@ -1,5 +1,8 @@
 package com.petland.start;
 
+import com.petland.model.Cadastro;
+import com.petland.model.Endereco;
+import com.petland.model.Perfil;
 import com.petland.repository.CadastroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -14,6 +17,19 @@ public class StartApp implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        System.out.println("Testando um método que será executado pelo spring");
+        Cadastro gleyson = new Cadastro();
+        gleyson.setNome("Gleyson Sampaio");
+
+        Perfil perfil = new Perfil();
+        perfil.setCliente(true);
+
+        gleyson.setPerfil(perfil);
+
+        Endereco endereco = new Endereco();
+        endereco.setLogradouro("Rua das Flores");
+        endereco.setNumero("123");
+
+        gleyson.setEndereco(endereco);
+        repository.save(gleyson);
     }
 }
