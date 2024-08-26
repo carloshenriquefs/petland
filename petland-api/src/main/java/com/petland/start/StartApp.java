@@ -26,7 +26,7 @@ public class StartApp implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        
+        /*
         Cadastro gleyson = new Cadastro();
         gleyson.setNome("Gleyson Sampaio");
 
@@ -50,5 +50,6 @@ public class StartApp implements ApplicationRunner {
         thor.setEspecie(AnimalEspecie.CACHORRO);
 
         animalRepository.save(thor);
+        */
     }
 }
