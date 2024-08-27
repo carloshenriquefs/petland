@@ -1,7 +1,8 @@
-package com.petland.controller;
+package com.petland.cadastro.controller;
 
-import com.petland.model.ProdutoServico;
-import com.petland.repository.ProdutoServicoRepository;
+import com.petland.cadastro.model.dto.AnimalRequest;
+import com.petland.cadastro.model.dto.AnimalResponse;
+import com.petland.cadastro.service.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,33 +16,30 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/produtos")
-public class ProdutoServicoController {
+@RequestMapping("/animais")
+public class AnimalController {
 
     @Autowired
-    private ProdutoServicoRepository repository;
+    private AnimalService animalService;
 
     @GetMapping()
-    public List<ProdutoServico> listar() {
-        return repository.findAll();
+    public List<AnimalResponse> get() {
+        return animalService.listar();
     }
 
     @PostMapping()
-    public Integer gravar(@RequestBody ProdutoServico requisicao) {
-        repository.save(requisicao);
-        return requisicao.getId();
+    public Integer gravar(@RequestBody AnimalRequest requisicao) {
+        return animalService.gravar(requisicao);
     }
 
     @PutMapping("/{id}")
     public Integer alterar(@PathVariable("id") Integer id,
-                           @RequestBody ProdutoServico requisicao) {
-        requisicao.setId(id);
-        repository.save(requisicao);
-        return requisicao.getId();
+                           @RequestBody AnimalRequest requisicao) {
+        return animalService.alterar(id, requisicao);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Integer id) {
-        repository.deleteById(id);
+        animalService.excluir(id);
     }
 }

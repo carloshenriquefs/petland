@@ -1,6 +1,6 @@
-package com.petland.model.dto;
+package com.petland.cadastro.model.dto;
 
-import com.petland.model.AnimalEspecie;
+import com.petland.cadastro.model.AnimalEspecie;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -10,4 +10,5 @@ public class AnimalRequest {
     private String nome;
     private LocalDate aniversario;
     private AnimalEspecie especie;
+    private Integer tutor;
 }

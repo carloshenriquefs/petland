@@ -1,8 +1,8 @@
-package com.petland.controller;
+package com.petland.cadastro.controller;
 
-import com.petland.model.dto.CadastroRequest;
-import com.petland.model.dto.CadastroResponse;
-import com.petland.service.CadastroService;
+import com.petland.cadastro.model.dto.CadastroRequest;
+import com.petland.cadastro.model.dto.CadastroResponse;
+import com.petland.cadastro.service.CadastroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

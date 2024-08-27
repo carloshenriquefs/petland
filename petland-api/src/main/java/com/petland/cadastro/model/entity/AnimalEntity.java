@@ -1,6 +1,6 @@
-package com.petland.model.entity;
+package com.petland.cadastro.model.entity;
 
-import com.petland.model.AnimalEspecie;
+import com.petland.cadastro.model.AnimalEspecie;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -32,4 +32,7 @@ public class AnimalEntity {
 
     @Enumerated(EnumType.STRING)
     private AnimalEspecie especie;
+
+    @Column(name = "cad_tutor")
+    private Integer tutor;
 }
