@@ -1,7 +1,7 @@
 package com.petland.controller;
 
-import com.petland.model.Animal;
-import com.petland.repository.AnimalRepository;
+import com.petland.model.dto.AnimalResponse;
+import com.petland.service.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,10 +12,10 @@ import java.util.List;
 public class AnimalController {
 
     @Autowired
-    private AnimalRepository repository;
+    private AnimalService animalService;
 
     @GetMapping("/animais")
-    public List<Animal> listar() {
-        return repository.findAll();
+    public List<AnimalResponse> get() {
+        return animalService.listar();
     }
 }
